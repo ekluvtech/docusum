@@ -38,13 +38,17 @@
         
         curl --location 'http://localhost:7654/api/upload' \
         --form 'file=@"/path/to/file"'
+    
+  - #### <img width="735" alt="Screenshot 2025-04-12 at 6 59 53 PM" src="https://github.com/user-attachments/assets/c629befb-6efc-4a99-b58d-69451e1c1535" />
+
   - #### **/api/embed**: This process will generate embeddings and store them in the Qdrant vector database.
         
         curl --location --request GET 'http://localhost:7654/api/embed' \
         --header 'Content-Type: application/javascript' \
         --data '{
-            
         }'
+   - #### <img width="627" alt="Screenshot 2025-04-12 at 6 59 59 PM" src="https://github.com/user-attachments/assets/1ce4ccf5-9f32-493d-a32f-370d6f9f017b" />
+
   - #### **/api/question**: This will retrieve a response from the LLM (Large Language Model) running on local Ollama.
         
         curl --location 'http://localhost:7654/api/question' \
@@ -53,6 +57,11 @@
           "question": "List out OWASP top 10 ",
           "user_id": "docusum"
         }'
+    
+  - #### <img width="628" alt="Screenshot 2025-04-12 at 7 00 08 PM" src="https://github.com/user-attachments/assets/25fae00a-98a5-4328-bca0-fa68710ac5b5" />
+
+  - #### <img width="632" alt="Screenshot 2025-04-12 at 7 00 13 PM" src="https://github.com/user-attachments/assets/df57a1fd-55cb-4bab-80c2-dad0e504ef68" />
   
+
 
        
