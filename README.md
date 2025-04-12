@@ -30,5 +30,8 @@
         pip install torch sentence-transformers
         pip install qdrant-client
         pip install Werkzeug==2.2.2
+  - ##### Output after successful execution
+  - <img width="1653" alt="Screenshot 2025-04-12 at 6 45 05 PM" src="https://github.com/user-attachments/assets/c3b1ae06-c3fa-499c-8458-fc95fb8354a4" />
+   
 
        
