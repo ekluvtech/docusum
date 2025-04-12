@@ -34,18 +34,18 @@
   - <img width="1653" alt="Screenshot 2025-04-12 at 6 45 05 PM" src="https://github.com/user-attachments/assets/c3b1ae06-c3fa-499c-8458-fc95fb8354a4" />
   - #### The server will run on http://localhost:7654
   - #### The available APIs are
-        **/api/upload**
+        /api/upload
         curl --location 'http://localhost:7654/api/upload' \
         --form 'file=@"/path/to/file"'
 
-        **/api/embed**
+        /api/embed
         curl --location --request GET 'http://localhost:7654/api/embed' \
         --header 'Content-Type: application/javascript' \
         --data '{
             
         }'
 
-        **/api/question**
+        /api/question
         curl --location 'http://localhost:7654/api/question' \
         --header 'Content-Type: application/json' \
         --data '{
