@@ -1,5 +1,5 @@
 ## We will develop a Document Summarization application leveraging an Advanced RAG pipeline, using embedding models, Large Language Models (LLMs), post-processing techniques, and re-ranking models.
-### Advacned RAG Pipeline
+### Advanced RAG Pipeline
 <img width="1262" alt="Screenshot 2025-04-12 at 6 38 42 PM" src="https://github.com/user-attachments/assets/bce82b9d-8314-400a-a415-8df9d491cac5" />
 
 - #### Step1: RAG - Retrieval Aguemented Generation
@@ -34,17 +34,18 @@
   - <img width="1653" alt="Screenshot 2025-04-12 at 6 45 05 PM" src="https://github.com/user-attachments/assets/c3b1ae06-c3fa-499c-8458-fc95fb8354a4" />
   - #### The server will run on http://localhost:7654
   - #### The available APIs are
+  - #### Please upload documents to the 'docs' folder
         /api/upload
         curl --location 'http://localhost:7654/api/upload' \
         --form 'file=@"/path/to/file"'
-
+  - #### This process will generate embeddings and store them in the Qdrant vector database.
         /api/embed
         curl --location --request GET 'http://localhost:7654/api/embed' \
         --header 'Content-Type: application/javascript' \
         --data '{
             
         }'
-
+ - #### This will retrieve a response from the LLM (Large Language Model) running on local Ollama.
         /api/question
         curl --location 'http://localhost:7654/api/question' \
         --header 'Content-Type: application/json' \
@@ -52,6 +53,6 @@
           "question": "List out OWASP top 10 ",
           "user_id": "docusum"
         }'
-   
+  
 
        
