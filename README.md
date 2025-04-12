@@ -34,19 +34,19 @@
   - <img width="1653" alt="Screenshot 2025-04-12 at 6 45 05 PM" src="https://github.com/user-attachments/assets/c3b1ae06-c3fa-499c-8458-fc95fb8354a4" />
   - #### The server will run on http://localhost:7654
   - #### The available APIs are
-  - #### Please upload documents to the 'docs' folder
-        /api/upload
+  - #### **/api/upload** Please upload documents to the 'docs' folder
+        
         curl --location 'http://localhost:7654/api/upload' \
         --form 'file=@"/path/to/file"'
-  - #### This process will generate embeddings and store them in the Qdrant vector database.
-        /api/embed
+  - #### **/api/embed** This process will generate embeddings and store them in the Qdrant vector database.
+        
         curl --location --request GET 'http://localhost:7654/api/embed' \
         --header 'Content-Type: application/javascript' \
         --data '{
             
         }'
- - #### This will retrieve a response from the LLM (Large Language Model) running on local Ollama.
-        /api/question
+  - #### **/api/question** This will retrieve a response from the LLM (Large Language Model) running on local Ollama.
+        
         curl --location 'http://localhost:7654/api/question' \
         --header 'Content-Type: application/json' \
         --data '{
