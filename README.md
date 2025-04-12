@@ -1,4 +1,5 @@
 ## We will develop a Document Summarization application leveraging an Advanced RAG pipeline, using embedding models, Large Language Models (LLMs), post-processing techniques, and re-ranking models.
+### Advacned RAG Pipeline
 <img width="1262" alt="Screenshot 2025-04-12 at 6 38 42 PM" src="https://github.com/user-attachments/assets/bce82b9d-8314-400a-a415-8df9d491cac5" />
 
 - #### Step1: RAG - Retrieval Aguemented Generation
