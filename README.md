@@ -6,6 +6,7 @@
   ##### Get familiar with RAG (Retrieval Augmented Generation) and its applications. This article covers the fundamentals of Basic RAG and delves into Advanced RAG techniques: https://ekluvtech.com/2025/03/16/rag-retrieval-agumented-generation/
 - #### Step2: Setup Ollama and Qdrant
   ##### In this setup, LLM model and Embedding model will be run using Ollama ecosystem. These models will help in creating embeddings and final response from the users.
+  ##### https://ekluvtech.com/2025/04/10/setup-ollama-and-qdrant/
 - #### Step3: Project Setup
   - ##### Since we’re using PyTorch dependencies, which currently support Python up to version 3.10, please ensure you’re using a compatible version. If you’re using a higher version, set up your environment with Python 3.10 using the following command
         python3.10 -m venv docusum                  
