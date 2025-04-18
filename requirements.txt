@@ -11,7 +11,8 @@ llama-index
 llama-index-vector-stores-qdrant
 llama-index-llms-ollama
 llama-index-embeddings-ollama
-torch sentence-transformers      
+torch
+sentence-transformers      
 Werkzeug==2.2.2
 qdrant-client
 fastembed
