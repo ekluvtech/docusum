@@ -16,6 +16,7 @@ from llama_index.embeddings.ollama import OllamaEmbedding
 from llama_index.core.indices.postprocessor import LLMRerank 
 import logging
 import sys
+from pathlib import Path
 
 from config import *
 
@@ -42,15 +43,23 @@ def init_llm():
     embed_model = OllamaEmbedding(base_url=f"{OLLAMA_URL}", model_name=f"{EMBED_MODEL}")
     Settings.llm = llm
     Settings.embed_model = embed_model
-
+def is_dir_empty(dir_path):
+    for f in Path(dir_path).iterdir():
+        if not f.name.startswith('.') and f.is_file():
+            return False
+        elif not f.name.startswith('.') and f.is_dir():
+            if not is_dir_empty(f):
+                return False
+    return True
 
 def init_index():
     global index
     global vector_store
     # create qdrant client
+    
     qdrant_client = QdrantClient(
-        url=f"{QDRANT_HOST}", 
-        api_key=f"{QDRANT_API_KEY}",
+        url=f"{QDRANT_HOST}",
+        api_key=f"{QDRANT_API_KEY}"
     )
     
     # qdrant vector store with enabling hybrid search
@@ -61,14 +70,15 @@ def init_index():
         batch_size=20
     )
 
-    upload_files = len(os.listdir(f"{UPLOAD_FILE_PATH}"))
-    if upload_files > 1:
-        index_storage_files = len(os.listdir(f"{INDEX_STORAGE_PATH}"))
-        if index_storage_files > 1:
+    #is_dir_empty
+    if not is_dir_empty(f"{UPLOAD_FILE_PATH}"):
+        if not is_dir_empty(f"{INDEX_STORAGE_PATH}"):
             new_storage_context = StorageContext.from_defaults( vector_store=vector_store, persist_dir=f"{INDEX_STORAGE_PATH}")
             index = load_index_from_storage(new_storage_context)
         else:
-            load_index()  
+            load_index()
+    else:
+        logging.info("No files available to build index!")  
 
 def load_index():
     global vector_store

@@ -15,8 +15,11 @@ logging.basicConfig(stream=sys.stdout, level=logging.INFO, format='%(asctime)s -
 @app.route('/api/embed', methods=['GET'])
 def createEmbed():
     if request.method == "GET":
-        load_index()
-    return jsonify({'status':'OK','message':'Created embeddings successfully!'}),200
+        if not is_dir_empty(f"{UPLOAD_FILE_PATH}"):
+            load_index()
+            return jsonify({'status':'OK','message':'Created embeddings successfully!'}),200
+        else:
+            return jsonify({'status':'Error','message':'No documents found to create embeddings, Please upload and invoke this method'}),200
 
 
 
@@ -34,15 +37,17 @@ def post_question():
     question = json['question']
     user_id = json['user_id']
     logging.info("post question `%s` for user `%s`", question, user_id)
-
-    resp = chat(question, user_id)
-    data = jsonify({'answer':resp})
-
-    return data, 200
+    if not is_dir_empty(f"{UPLOAD_FILE_PATH}"):
+        resp = chat(question, user_id)
+        data = jsonify({'answer':resp})
+        return data, 200
 
 if __name__ == '__main__':
     init_llm()
     init_index()
-    init_query_engine()
+    if not is_dir_empty(f"{INDEX_STORAGE_PATH}"):
+        init_query_engine()
+    else:
+        logging.info("No index available, skipping inti_engine_query() initialization")
 
-    app.run(host='0.0.0.0', port=HTTP_PORT, debug=True)
+    app.run(host='0.0.0.0', port=HTTP_PORT, debug=False)
