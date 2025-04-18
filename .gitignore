@@ -1,0 +1,6 @@
+*.pyc
+*.pyd
+*site-packages*
+*.exe
+*.bat
+*Scripts*

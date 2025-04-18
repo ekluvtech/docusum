@@ -1,0 +1,111 @@
+{
+	"info": {
+		"_postman_id": "4cbae6db-13b2-4c68-9fd1-4d98edb090d7",
+		"name": "docusum",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "331799",
+		"_collection_link": "https://grey-crescent-912407.postman.co/workspace/docusign~28ef663a-db54-41d7-9317-ea30c3e001ad/collection/331799-4cbae6db-13b2-4c68-9fd1-4d98edb090d7?action=share&source=collection_link&creator=331799"
+	},
+	"item": [
+		{
+			"name": "http://localhost:7654/api/upload",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/Users/srikanth/Downloads/owasp-top-10.pdf"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:7654/api/upload",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7654",
+					"path": [
+						"api",
+						"upload"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:7654/api/embed",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \n}",
+					"options": {
+						"raw": {
+							"language": "javascript"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:7654/api/embed",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7654",
+					"path": [
+						"api",
+						"embed"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:7654/api/question",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"question\": \"list out OWASP top 10 \",\n  \"user_id\": \"docusum\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:7654/api/question",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7654",
+					"path": [
+						"api",
+						"question"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
