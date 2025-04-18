@@ -11,17 +11,19 @@ llama-index
 llama-index-vector-stores-qdrant
 llama-index-llms-ollama
 llama-index-embeddings-ollama
-torch sentence-transformers      
+numpy==1.26.4
+torch
+sentence-transformers      
 Werkzeug==2.2.2
 qdrant-client
 fastembed
 
 
-PUT /collections/{collection_name}
-{
-    "vectors": {
-      "size": 300,
-      "distance": "Cosine"
-    }
-}
+#PUT /collections/{collection_name}
+#{
+#    "vectors": {
+#      "size": 300,
+#      "distance": "Cosine"
+#    }
+#}
 
