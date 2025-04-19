@@ -16,7 +16,6 @@ torch
 sentence-transformers      
 Werkzeug==2.2.2
 qdrant-client
-fastembed
 
 
 #PUT /collections/{collection_name}
